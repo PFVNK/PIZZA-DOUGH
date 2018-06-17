@@ -41,7 +41,7 @@ constructor(props) {
 //handles amount input, pushes data to array in state 
     handleTipArray(event) {
       let tipArray = this.state.amount.slice();
-      tipArray.push(event.target.value);
+      tipArray.push(event.target.value || '');
       this.setState({
         amount:tipArray
     });
