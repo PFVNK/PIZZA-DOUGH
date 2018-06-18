@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBarToggle from './Components/NavBarToggle';
+import NavBar from './Components/NavBar';
 import TipList from './Components/TipList';
 import MainTotal from './Components/MainTotal';
 import MapWithASearchBox from './Components/MapWithASearchBox';
@@ -41,7 +41,7 @@ constructor(props) {
 //handles amount input, pushes data to array in state 
     handleTipArray(event) {
       let tipArray = this.state.amount.slice();
-      tipArray.push(event.target.value || '');
+      tipArray.push(event.target.value || '' );
       this.setState({
         amount:tipArray
     });
@@ -50,7 +50,7 @@ constructor(props) {
 //handles address input, pushes data to array in state 
     handleAddressArray(event) {
       let addArray = this.state.address.slice();
-      addArray.push(event.target.value);
+      addArray.push(event.target.value || '');
       this.setState({
         address:addArray
     });
@@ -102,7 +102,7 @@ constructor(props) {
         <div className="App">
           <Route 
             path="/" 
-            render={(props) => <NavBarToggle {...props}
+            render={(props) => <NavBar {...props}
               clearState={ this.clearState }
               />}
           />

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 
 const TipList = (props) => {
@@ -6,19 +7,54 @@ const TipList = (props) => {
 	const addresss = props.address;
 	return (
 		<div>
-		<h2>TRACK</h2>
-			 {addresss.map((address, i) =>
-			 	<li key={i}>
-			 		{(i + 1) + address + tips[i]}
-			 		<button onClick={() => {props.removeItem(i)}}>Remove</button>
-			 	</li>
-			 	)}
+			<div>
+				<h2>TRACK</h2>
+			</div>
+
+			<div className="Deliverylist">
+				<div>
+					<h4>#</h4>
+					 {addresss.map((address, i) =>
+					 	<li key={i}>
+					 		{(i + 1) + '.'}
+					 	</li>
+					 	)}
+				</div>
+				<div>
+					<h4>Address</h4>
+					 {addresss.map((address, i) =>
+					 	<li key={i}>
+					 		{address}
+					 	</li>
+					 	)}
+				</div>
+				<div>
+					<h4>Tips</h4>
+					 {addresss.map((address, i) =>
+					 	<li key={i}>
+					 		{tips[i]}
+					 	</li>
+					 	)}
+				</div>
+				<div>
+					<h4>Edit</h4>
+					 {addresss.map((address, i) =>
+					 	<li key={i}>
+					 		<button onClick={() => {props.removeItem(i)}}>Remove</button>
+					 	</li>
+					 	)}
+				</div>
+			</div>
 		</div>
+
 		);
 }
 
 
 export default TipList;
+
+
+
 
 
 
