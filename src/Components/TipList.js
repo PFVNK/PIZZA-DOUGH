@@ -7,14 +7,14 @@ const TipList = (props) => {
 	const addresss = props.address;
 	return (
 		<div>
-			<div>
+			<div className="ListTitle">
 				<h2>TRACK</h2>
 			</div>
 
 			<div className="Deliverylist">
 				<div>
 					<h4>#</h4>
-					 {addresss.map((address, i) =>
+					 {tips.map((address, i) =>
 					 	<li key={i}>
 					 		{(i + 1) + '.'}
 					 	</li>
@@ -30,7 +30,7 @@ const TipList = (props) => {
 				</div>
 				<div>
 					<h4>Tips</h4>
-					 {addresss.map((address, i) =>
+					 {tips.map((address, i) =>
 					 	<li key={i}>
 					 		{tips[i]}
 					 	</li>
@@ -38,7 +38,7 @@ const TipList = (props) => {
 				</div>
 				<div>
 					<h4>Edit</h4>
-					 {addresss.map((address, i) =>
+					 {tips.map((address, i) =>
 					 	<li key={i}>
 					 		<button onClick={() => {props.removeItem(i)}}>Remove</button>
 					 	</li>

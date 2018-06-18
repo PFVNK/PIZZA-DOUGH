@@ -5,9 +5,14 @@
 .Deliverylist {
   display: flex;
   justify-content: space-between;
-  margin: auto 20px;
-  border: solid black;
+  margin: auto 15px;
+
   list-style-type: none;
+}
+
+.ListTitle {
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .Deliverylist li {
@@ -21,4 +26,26 @@ h4 {
 .Deliverylist button {
   border: none;
   height: 1px;
+}
+
+.ValueSubmit input {
+  border: none;
+  font-size: 20px;
+}
+
+.AddressValue {
+  margin-top: 20px;
+}
+
+.TipValue {
+  margin-top: -10px;
+}
+
+.TotalNum {
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+.TotalDisplay h2 {
+  margin-top: 10px;
 }

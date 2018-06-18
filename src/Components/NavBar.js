@@ -37,17 +37,17 @@ export default class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                  <NavLink tag={Link} to="/" onClick={this.toggleNavbar}>Input</NavLink>
+                  <NavLink tag={Link} to="/" onClick={this.toggle}>Input</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to="/tiplist" onClick={this.toggleNavbar}>Track</NavLink>
+                  <NavLink tag={Link} to="/tiplist" onClick={this.toggle}>Track</NavLink>
                 </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag={Link} to="/map" onClick={this.toggleNavbar}>
+                  <DropdownItem tag={Link} to="/map" onClick={this.toggle}>
                     Map
                   </DropdownItem>
                   <DropdownItem href="#" onClick={this.props.clearState}>

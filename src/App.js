@@ -50,7 +50,7 @@ constructor(props) {
 //handles address input, pushes data to array in state 
     handleAddressArray(event) {
       let addArray = this.state.address.slice();
-      addArray.push(event.target.value || '');
+      addArray.push(event.target.value || '' );
       this.setState({
         address:addArray
     });

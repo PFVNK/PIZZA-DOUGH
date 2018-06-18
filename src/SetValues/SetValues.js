@@ -3,21 +3,27 @@ import '../App.css';
 const SetValues = (props) => {
 
     return (
-    	<div>
+    	<div className="ValueInputs">
       		<form onSubmit={props.handleSubmit}>
-      			<label>
-          			Address(optional)
-          			<br />
-          			<input name="address" type="text" onBlur={props.handleAddressArray} />
-       		 	</label>
-        		<br />
-        		<label>
-          			Tip
-         			<br />
-          			<input name="amount" type="number" onBlur={props.handleTipArray} />
-        		</label>
-        		<br />
-        		<input type="submit" value="Enter" />
+      			<div className="AddressValue">
+	      			<label>
+	          			Address(optional)
+	          			<br />
+	          			<input name="address" type="text" onBlur={props.handleAddressArray} />
+	       		 	</label>
+	       		</div> 	
+	        		<br />
+	        	<div className="TipValue">	
+	        		<label>
+	          			Tip
+	         			<br />
+	          			<input name="amount" type="number" onBlur={props.handleTipArray} />
+	        		</label>
+	        	</div>	
+	        		<br />
+	        	<div className="ValueSubmit">	
+	        		<input type="submit" value="Enter" />
+	        	</div>		
       		</form>
       </div>
     )

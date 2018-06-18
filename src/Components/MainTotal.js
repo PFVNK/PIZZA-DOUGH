@@ -6,10 +6,14 @@ let getTotal = (total, num) => {
 
 const MainTotal = (props) => {
 	return(
-		<div>
-			<h2>INPUT</h2>
-			<span>$ {props.amount.reduce(getTotal, 0).toFixed(2)}</span>
-		</div>
+		<div className="TotalDisplay">
+			<div>
+				<h2>INPUT</h2>
+			</div>	
+			<div className="TotalNum">
+				<span>Total: $ {props.amount.reduce(getTotal, 0).toFixed(2)}</span>
+			</div>
+		</div>	
 	)
 }
 
