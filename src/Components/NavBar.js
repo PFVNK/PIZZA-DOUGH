@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Collapse,
   Navbar,
@@ -10,47 +10,47 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
-  import { Link } from 'react-router-dom';
-  import PropTypes from 'prop-types';
+  DropdownItem } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 export default class NavBar extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this)
     this.state = {
       isOpen: false
-    };
+    }
   }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
-    });
+    })
   }
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">PIZZA DOUGH</NavbarBrand>
+        <Navbar color='light' light expand='md'>
+          <NavbarBrand href='/'>PIZZA DOUGH</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className='ml-auto' navbar>
               <NavItem>
-                  <NavLink tag={Link} to="/" onClick={this.toggle}>Input</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} to="/tiplist" onClick={this.toggle}>Track</NavLink>
-                </NavItem>
+                <NavLink tag={Link} to='/input' onClick={this.toggle}>Input</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to='/tiplist' onClick={this.toggle}>Track</NavLink>
+              </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag={Link} to="/map" onClick={this.toggle}>
+                  <DropdownItem tag={Link} to='/map' onClick={this.toggle}>
                     Map
                   </DropdownItem>
-                  <DropdownItem href="#" onClick={this.props.clearState}>
+                  <DropdownItem href='#' onClick={this.props.clearState}>
                     Reset
                   </DropdownItem>
                   <DropdownItem divider />
@@ -63,7 +63,7 @@ export default class NavBar extends React.Component {
           </Collapse>
         </Navbar>
       </div>
-    );
+    )
   }
 }
 

@@ -3,26 +3,26 @@ import '../App.css';
 const SetValues = (props) => {
 
     return (
-    	<div className="ValueInputs">
+    	<div className='ValueInputs'>
       		<form onSubmit={props.handleSubmit}>
-      			<div className="AddressValue">
+      			<div className='AddressValue'>
 	      			<label>
 	          			Address(optional)
 	          			<br />
-	          			<input name="address" type="text" onBlur={props.handleAddressArray} />
+	          			<input name='address' type='text' onBlur={props.handleAddressArray} />
 	       		 	</label>
 	       		</div> 	
 	        		<br />
-	        	<div className="TipValue">	
+	        	<div className='TipValue'>	
 	        		<label>
 	          			Tip
 	         			<br />
-	          			<input name="amount" type="number" onBlur={props.handleTipArray} />
+	          			<input name='amount' type='number' onBlur={props.handleTipArray} />
 	        		</label>
 	        	</div>	
 	        		<br />
-	        	<div className="ValueSubmit">	
-	        		<input type="submit" value="Enter" />
+	        	<div className='ValueSubmit'>	
+	        		<input type='submit' value='Enter' />
 	        	</div>		
       		</form>
       </div>

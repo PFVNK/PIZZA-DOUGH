@@ -1,20 +1,17 @@
-import React from 'react';
+import React from 'react'
 
 let getTotal = (total, num) => {
-		return total + (parseFloat(num) || 0);	
+  return total + (parseFloat(num) || 0)
 }
 
 const MainTotal = (props) => {
-	return(
-		<div className="TotalDisplay">
-			<div>
-				<h2>INPUT</h2>
-			</div>	
-			<div className="TotalNum">
-				<span>Total: $ {props.amount.reduce(getTotal, 0).toFixed(2)}</span>
-			</div>
-		</div>	
-	)
+  return(
+    <div className='TotalDisplay'>
+      <div className='TotalNum'>
+        <span>Total: $ {props.amount.reduce(getTotal, 0).toFixed(2)}</span>
+      </div>
+    </div>
+  )
 }
 
-export default MainTotal;
+export default MainTotal
