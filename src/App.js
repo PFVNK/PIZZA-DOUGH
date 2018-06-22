@@ -3,6 +3,7 @@ import './App.css'
 import NavBar from './Components/NavBar'
 import TipList from './Components/TipList'
 import MainTotal from './Components/MainTotal'
+import Facebook from './Components/Facebook'
 import MapWithASearchBox from './Components/MapWithASearchBox'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import SetValues from './SetValues/SetValues'
@@ -99,17 +100,21 @@ class App extends Component {
     return (
       <Router>
         <div className='App'>
-          <Route 
-            path='/' 
+          <Route
+            path='/' exact
+            component={Facebook}
+          />
+          <Route
+            path='/'
             render={(props) => (props.location.pathname !== '/') && (<NavBar {...props}
               clearState={ this.clearState }
             />)}
           />
-          <Route 
+          <Route
             path='/input' exact
             render={(props) => <MainTotal {...props} amount={this.state.amount}/>}
           />
-          <Route 
+          <Route
             path='/input' exact
             render={(props) => (<SetValues {...props} 
               handleSubmit={ this.handleSubmit } 
@@ -119,7 +124,7 @@ class App extends Component {
               amount={this.state.amount}
             />)}
           />
-          <Route 
+          <Route
             path='/tiplist' exact
             render={(props) => (<TipList {...props} 
               amount={this.state.amount}
@@ -127,10 +132,10 @@ class App extends Component {
               removeItem={this.removeItem}
             />)}
           />
-          <Route 
+          <Route
             path='/map' exact
             render={() => <MapWithASearchBox />}
-          />  
+          /> 
         </div>
       </Router>
     )
