@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import MainTotal from './MainTotal'
 
 
 const TipList = (props) => {
@@ -14,7 +15,7 @@ const TipList = (props) => {
 	 <div className='Deliverylist'>
 	  <div>
 	   <h4>#</h4>
-	   {tips.map((address, i) =>
+	   {(tips || []).map((address, i) =>
 	   	(<li key={i}>
 			    {(i + 1) + '.'}
 		    </li>
@@ -22,7 +23,7 @@ const TipList = (props) => {
 	  </div>
 	  <div>
 	    <h4>Address</h4>
-	    {addresss.map((address, i) =>
+	    {(addresss || []).map((address, i) =>
 		    (<li key={i}>
 			    {address}
 		    </li>
@@ -30,7 +31,7 @@ const TipList = (props) => {
 	  </div>
 	  <div>
 	    <h4>Tips</h4>
-	    {tips.map((address, i) =>
+	    {(tips || []).map((address, i) =>
 	    	(<li key={i}>
 	    		{tips[i]}
 		    </li>
@@ -38,15 +39,15 @@ const TipList = (props) => {
 	  </div>
 	  <div>
 	    <h4>Edit</h4>
-	 	{tips.map((address, i) =>
+	 	{(tips || []).map((address, i) =>
 	 		(<li key={i}>
 	 			<button onClick={() => {props.removeItem(i)}}>Remove</button>
 	 		</li>
 		    ))}
 	 </div>
 	 </div>
+	 <MainTotal amount={props.amount}/>	
     </div>
-
   )
 }
 

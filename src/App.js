@@ -13,7 +13,12 @@ class App extends Component {
     super(props)
     this.state = {
       address: [],
-      amount: []
+      amount: [],
+      isLoggedIn: false,
+      userID: '',
+      name: '',
+      email: '',
+      picture: ''
     }
 
     this.handleTipArray = this.handleTipArray.bind(this)
@@ -22,25 +27,45 @@ class App extends Component {
     this.removeItem = this.removeItem.bind(this)
     this.clearState = this.clearState.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
+    // this.responseFacebook = this.responseFacebook.bind(this)
 
     console.log(this.state.address)
     console.log(this.state.amount)
   }
 
   // retrieves data from localstorage and updates the state
-  componentDidMount () {
+  componentDidMount() {
     let address = JSON.parse(localStorage.getItem('address'))
     let amount = JSON.parse(localStorage.getItem('amount'))
+    let picture = JSON.parse(localStorage.getItem('picture'))
+    let name = JSON.parse(localStorage.getItem('name'))
 
     this.setState({
       address: address,
-      amount: amount
+      amount: amount,
+      picture: picture,
+      name: name
     })
   }
 
+responseFacebook = response => {
+    console.log(response);
+
+    this.setState({
+      isLoggedIn: true,
+      userID: response.userID,
+      name: response.name,
+      email: response.email,
+      picture: response.picture.data.url
+    });
+
+    localStorage.setItem('picture', JSON.stringify(this.state.picture))
+    localStorage.setItem('name', JSON.stringify(this.state.name))
+  };
+
   // handles amount input, pushes data to array in state 
   handleTipArray(event) {
-    let tipArray = this.state.amount.slice()
+    let tipArray = (this.state.amount || []).slice()
     tipArray.push(event.target.value || '')
     this.setState({
       amount: tipArray
@@ -49,7 +74,7 @@ class App extends Component {
 
   // handles address input, pushes data to array in state 
   handleAddressArray(event) {
-    let addArray = this.state.address.slice()
+    let addArray = (this.state.address || []).slice()
     addArray.push(event.target.value || '')
     this.setState({
       address: addArray
@@ -95,19 +120,26 @@ class App extends Component {
     localStorage.clear()
   }
 
-
   render() {
     return (
       <Router>
         <div className='App'>
           <Route
             path='/' exact
-            component={Facebook}
+            render={(props) => (<Facebook {...props}
+              isLoggedIn={this.state.isLoggedIn}
+              picture={this.state.picture}
+              name={this.state.name}
+              responseFacebook={this.responseFacebook}
+            />)}
           />
           <Route
             path='/'
             render={(props) => (props.location.pathname !== '/') && (<NavBar {...props}
               clearState={ this.clearState }
+              logOut={this.logOut}
+              picture={this.state.picture}
+              name={this.state.name}
             />)}
           />
           <Route

@@ -28,14 +28,18 @@ export default class NavBar extends React.Component {
       isOpen: !this.state.isOpen
     })
   }
+
   render() {
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>PIZZA DOUGH</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarBrand href='/'>PIZZA DOUGH </NavbarBrand>
+          <div className='profileImg'>
+            <img src={this.props.picture} alt={this.props.name} />
+          </div>  
+          <NavbarToggler onClick={this.toggle} />         
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className='ml-auto' navbar>
+            <Nav className='ml-auto' navbar>  
               <NavItem>
                 <NavLink tag={Link} to='/input' onClick={this.toggle}>Input</NavLink>
               </NavItem>
@@ -54,8 +58,8 @@ export default class NavBar extends React.Component {
                     Reset
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
-                    Log Out
+                  <DropdownItem tag={Link} to='/' onClick={this.props.clearState}>
+                    Log Out 
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

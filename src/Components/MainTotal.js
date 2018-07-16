@@ -8,10 +8,11 @@ const MainTotal = (props) => {
   return(
     <div className='TotalDisplay'>
       <div className='TotalNum'>
-        <span>Total: $ {props.amount.reduce(getTotal, 0).toFixed(2)}</span>
+        <span>Total: $ {(props.amount || []).reduce(getTotal, 0).toFixed(2)}</span>
       </div>
     </div>
   )
 }
 
-export default MainTotal
+export default MainTotal;
+
