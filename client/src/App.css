@@ -1,19 +1,30 @@
 .App {
   text-align: center;
+  /*background-image: url(./blackpizza1.jpg);*/
+  height: 100%;
+  background-position: right;
+  /*background-repeat: no-repeat;*/
+  background-size: 20%;
 }
 
 .Intro {
-  border: solid black;
-  margin: 0 auto;
-  width: 100%;
+ /* border: solid black;*/
+/*  margin: 0 auto;*/
+  padding: 30%;
+  padding-top: 20%;
+
 }
 
 .Intro h1 {
-  font-size: 5em;
+  font-size: 500%;
+  font-family: 'Fredoka One', cursive;
 }
 
 .IntroElements {
-  border: solid red;   
+  /*border: solid red;*/
+  /*margin: auto;*/
+  width: 100%;
+  height: 100%;
 }
 
 .profileImg {
@@ -34,6 +45,7 @@
   justify-content: space-between;
   margin: auto 15px;
   list-style-type: none;
+  font-size: .90em;
 }
 
 .ListTitle {
@@ -52,6 +64,10 @@ h4 {
 .Deliverylist button {
   border: none;
   height: 1px;
+}
+
+.NavBrand {
+  font-family: 'Fredoka One', cursive;
 }
 
 .ValueSubmit input {
@@ -78,6 +94,7 @@ h4 {
 .TotalNum {
   margin-top: 60px;
   font-size: 30px;
+  font-family: 'Lato', sans-serif;
 }
 
 .TotalDisplay h2 {
@@ -97,6 +114,26 @@ h4 {
   width: 40px;
   height: 40px;
 }
+
+.Intro {
+  /*border: solid black;*/
+/*  margin: 0 auto;*/
+  padding: 5%;
+  padding-top: 60%;
+
+}
+
+.Intro h1 {
+  font-size: 2.5em;
+  font-family: 'Fredoka One', cursive;
+}
+
+.IntroElements {
+ /* border: solid red;*/
+  /*margin: auto;*/
+  width: 100%;
+  height: 100%;
+}
 }
 
 @media only screen and (max-width: 375px) {
@@ -112,6 +149,25 @@ h4 {
   width: 40px;
   height: 40px;
 }
+
+.Intro {
+  /*border: solid black;*/
+/*  margin: 0 auto;*/
+  padding: 5%;
+  padding-top: 60%;
+
+}
+
+.Intro h1 {
+  font-size: 2.5em;
+}
+
+.IntroElements {
+  /*border: solid red;*/
+  /*margin: auto;*/
+  width: 100%;
+  height: 100%;
+}
 }
 
 @media only screen and (max-width: 320px) {
@@ -126,6 +182,25 @@ h4 {
   float: right;
   width: 40px;
   height: 40px;
+}
+
+.Intro {
+  /*border: solid black;*/
+/*  margin: 0 auto;*/
+  padding: 5%;
+  padding-top: 50%;
+
+}
+
+.Intro h1 {
+  font-size: 2.5em;
+}
+
+.IntroElements {
+  /*border: solid red;*/
+  /*margin: auto;*/
+  width: 100%;
+  height: 100%;
 }
 
 }

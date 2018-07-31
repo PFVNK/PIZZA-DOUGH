@@ -19,8 +19,7 @@ export default class Facebook extends Component {
 			          appId='1849032475173691'
 			          size='small'
 			          autoLoad={false}
-			          fields='name,email,picture'
-			          onClick={this.props.componentClicked}
+			          fields='name,email,picture'			          
 			          callback={this.props.responseFacebook}
 			        />
 		        </div>

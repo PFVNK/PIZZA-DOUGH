@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+
 const SetValues = (props) => {
 
   return (
@@ -9,7 +10,7 @@ const SetValues = (props) => {
 	      			<label>
 	          			Address(optional)
 	          			<br />
-	          			<input name='address' defaultValue=' ' type='text' autoComplete='off' onBlur={props.handleAddressArray} />
+	          			<input name='address' type='text' maxLength='15' autoComplete='off' value={props.addressValue} onChange={props.handleAddressArray} />
 	       		 	</label>
 	       		</div> 	
 	        		<br />
@@ -17,7 +18,7 @@ const SetValues = (props) => {
 	        		<label>
 	          			Tip
 	         			<br />
-	          			<input name='amount' type='number' autoComplete='off' onBlur={props.handleTipArray} />
+	          			<input name='amount' type='text' maxLength='4' autoComplete='off' value={props.amountValue} onChange={props.handleTipArray} />
 	        		</label>
 	        	</div>	
 	        		<br />
@@ -25,7 +26,7 @@ const SetValues = (props) => {
 	        		<input type='submit' value='Enter' />
 	        	</div>		
       		</form>
-        </div>
+        </div>   
     )
   }
 

@@ -46,7 +46,7 @@ const TipList = (props) => {
 		    ))}
 	 </div>
 	 </div>
-	 <MainTotal amount={props.amount}/>	
+	 	<MainTotal className='TipListTotal' amount={tips}/>	
     </div>
   )
 }

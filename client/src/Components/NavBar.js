@@ -33,7 +33,7 @@ export default class NavBar extends React.Component {
     return (
       <div>
         <Navbar color='light' light expand='md'>
-          <NavbarBrand href='/'>PIZZA DOUGH </NavbarBrand>
+          <NavbarBrand className='NavBrand' href='/'>PIZZA DOUGH </NavbarBrand>
           <div className='profileImg'>
             <img src={this.props.picture} alt={this.props.name} />
           </div>  
@@ -51,6 +51,9 @@ export default class NavBar extends React.Component {
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
+                  <DropdownItem tag={Link} to='/standings' onClick={this.toggle}>
+                    Standings
+                  </DropdownItem>
                   <DropdownItem tag={Link} to='/map' onClick={this.toggle}>
                     Map
                   </DropdownItem>
@@ -58,7 +61,7 @@ export default class NavBar extends React.Component {
                     Reset
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem tag={Link} to='/' onClick={this.props.clearState}>
+                  <DropdownItem href='/' onClick={this.props.logOut}>
                     Log Out 
                   </DropdownItem>
                 </DropdownMenu>
