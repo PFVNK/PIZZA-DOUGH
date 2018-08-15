@@ -33,8 +33,6 @@ class App extends Component {
     this.componentDidMount = this.componentDidMount.bind(this)
     this.logOut = this.logOut.bind(this)
 
-    console.log(this.state.address)
-    console.log(this.state.amount)
   }
 
   // retrieves data from localstorage and updates the state
@@ -55,7 +53,6 @@ class App extends Component {
   }
 
 responseFacebook = response => {
-    console.log(response);
 
     this.setState({
       isLoggedIn: true,
@@ -104,8 +101,6 @@ responseFacebook = response => {
       amountValue: ''
     },
     () => {
-        console.log(this.state.amount)
-        console.log(this.state.address)
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
@@ -135,9 +130,6 @@ responseFacebook = response => {
     () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
-
-        console.log(this.state.amount)
-        console.log(this.state.address)
 
         let id = this.state.driver._id
 
