@@ -14,7 +14,7 @@ const google = window.google
 
 const MapWithASearchBox = compose(
   withProps({
-    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places',
+    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBwoQbidFxxgJq48d6-02ZX4qAljBs03nc&libraries=geometry,drawing,places',
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px`}} />,
     mapElement: <div style={{ height: `100%`, margin: `20px` }} />
@@ -106,4 +106,6 @@ const MapWithASearchBox = compose(
 )
 
 export default MapWithASearchBox
+
+// AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp
 

@@ -7,9 +7,9 @@ const ItemSchema = new Schema({
 		type: String,
 		required: true
 	},
-	car: {
-		type: String,
-		required: true
+	total: {
+		type: Number,
+		required: false
 	},
 	date: {
 		type: Date,

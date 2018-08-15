@@ -18,11 +18,11 @@ class Standings extends Component {
 
 	render() {
 		return (
-			<div className='App'>
+			<div className='Standings'>
 				<h2>Standings</h2>
 				<ul>
 					{this.state.drivers.map(driver =>
-						<li key={driver.id}>{driver.firstName} {driver.lastName}</li>
+						<li key={driver.id}>{driver.name} {driver.total}</li>
 					)}
 				</ul>
 			</div>

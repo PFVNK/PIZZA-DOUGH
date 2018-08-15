@@ -7,7 +7,7 @@ import Facebook from './Components/Facebook'
 import Standings from './Components/Standings'
 import MapWithASearchBox from './Components/MapWithASearchBox'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import SetValues from './SetValues/SetValues'
+import SetValues from './Components/SetValues'
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +21,8 @@ class App extends Component {
       userID: '',
       name: '',
       email: '',
-      picture: ''
+      picture: '',
+      driver: []
     }
 
     this.handleTipArray = this.handleTipArray.bind(this)
@@ -30,6 +31,7 @@ class App extends Component {
     this.removeItem = this.removeItem.bind(this)
     this.clearState = this.clearState.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
+    this.logOut = this.logOut.bind(this)
 
     console.log(this.state.address)
     console.log(this.state.amount)
@@ -41,12 +43,14 @@ class App extends Component {
     let amount = JSON.parse(localStorage.getItem('amount'))
     let picture = JSON.parse(localStorage.getItem('picture'))
     let name = JSON.parse(localStorage.getItem('name'))
+    let driver = JSON.parse(localStorage.getItem('driver'))
 
     this.setState({
       address,
       amount,
       picture,
-      name
+      name,
+      driver
     })
   }
 
@@ -63,7 +67,22 @@ responseFacebook = response => {
 
     localStorage.setItem('picture', JSON.stringify(this.state.picture))
     localStorage.setItem('name', JSON.stringify(this.state.name))
-  };
+
+    fetch('/api/items', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                },
+              body: JSON.stringify({
+                name: this.state.name,
+                total: 0
+            }),  
+        })
+        .then(res => res.json())
+        .then(driver => this.setState({driver}))
+        .then(() => localStorage.setItem('driver', JSON.stringify(this.state.driver)))              
+  }
 
   // handles amount input, pushes data to array in state 
   handleTipArray(event) {
@@ -80,7 +99,7 @@ responseFacebook = response => {
     event.preventDefault()
     this.setState ({ 
       address: [...this.state.address || [], this.state.addressValue || '-'], 
-      amount: [...this.state.amount || [], this.state.amountValue || 0],
+      amount: [...this.state.amount || [], parseFloat(this.state.amountValue) ||  0],
       addressValue: '',
       amountValue: ''
     },
@@ -89,6 +108,20 @@ responseFacebook = response => {
         console.log(this.state.address)
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
+
+        let id = this.state.driver._id
+
+        fetch(`/api/items/${id}`, {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                },
+              body: JSON.stringify({
+                name: this.state.name,
+                total: this.state.amount.reduce((a, b) => a + b, 0)
+            }),
+        })
       }
     )  
   }
@@ -105,12 +138,37 @@ responseFacebook = response => {
 
         console.log(this.state.amount)
         console.log(this.state.address)
+
+        let id = this.state.driver._id
+
+        fetch(`/api/items/${id}`, {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                },
+              body: JSON.stringify({
+                name: this.state.name,
+                total: this.state.amount.reduce((a, b) => a + b, 0)
+            }),
+        })
       }
     )  
   }
 
-  // clears localstorage
+  // clears localstorage and deletes db document
   logOut() {
+
+    let id = this.state.driver._id
+    
+    fetch(`/api/items/${id}`, {
+              method: 'DELETE',
+              headers: {
+                Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                }
+        })
+
     localStorage.clear()
   }
 
@@ -123,6 +181,20 @@ responseFacebook = response => {
     () => {   
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
+
+        let id = this.state.driver._id
+
+        fetch(`/api/items/${id}`, {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                },
+              body: JSON.stringify({
+                name: this.state.name,
+                total: 0
+            }),
+        })
       }
     )
   }

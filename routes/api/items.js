@@ -9,7 +9,7 @@ const Item = require('../../models/Item')
 //@access  Public
 router.get('/', (req, res) => {
 	Item.find()
-		.sort({ date: -1 })
+		.sort({ total: -1 })
 		.then(items => res.json(items))
 })
 
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 	const newItem = new Item({
 		name: req.body.name,
-		car: req.body.car
+		total: req.body.total
 	})
 
 	newItem.save().then(item => res.json(item))
@@ -34,6 +34,14 @@ router.delete('/:id', (req, res) => {
 		.catch(err => res.status(404).json({success: false}))
 })
 
-
+//@route   UPDATE api/items/:id
+//@desc    Update An item
+//@access  Public
+router.put ('/:id', (req, res) => {
+	Item.findByIdAndUpdate(req.params.id, { total: req.body.total }, (err, res) => {
+		console.log(err)
+	})
+		
+})
 
 module.exports = router

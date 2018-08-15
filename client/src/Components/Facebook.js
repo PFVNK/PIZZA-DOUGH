@@ -16,7 +16,7 @@ export default class Facebook extends Component {
       				<h1>PIZZA DOUGH</h1>
       		
 			        <FacebookLogin
-			          appId='1849032475173691'
+			          appId='655517171497976'
 			          size='small'
 			          autoLoad={false}
 			          fields='name,email,picture'			          
