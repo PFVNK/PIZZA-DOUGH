@@ -95,7 +95,6 @@ responseFacebook = response => {
     event.preventDefault()
 
     const id = this.state.driver._id
-    console.log('this is working')
 
     this.setState ({ 
       address: [...this.state.address || [], this.state.addressValue || '-'], 
