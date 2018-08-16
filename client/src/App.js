@@ -32,7 +32,6 @@ class App extends Component {
     this.clearState = this.clearState.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.logOut = this.logOut.bind(this)
-
   }
 
   // retrieves data from localstorage and updates the state
@@ -80,7 +79,7 @@ responseFacebook = response => {
         .then(driver => this.setState({driver}))
         .then(() => localStorage.setItem('driver', JSON.stringify(this.state.driver)))              
   }
-
+  
   // handles amount input, pushes data to array in state 
   handleTipArray(event) {
     this.setState({amountValue: event.target.value || ' '})
@@ -94,6 +93,10 @@ responseFacebook = response => {
   // sets address and amount data in localstorage
   handleSubmit(event) {
     event.preventDefault()
+
+    const id = this.state.driver._id
+    console.log('this is working')
+
     this.setState ({ 
       address: [...this.state.address || [], this.state.addressValue || '-'], 
       amount: [...this.state.amount || [], parseFloat(this.state.amountValue) ||  0],
@@ -104,7 +107,7 @@ responseFacebook = response => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
-        let id = this.state.driver._id
+        let total = this.state.amount.reduce((a, b) => a + b, 0)
 
         fetch(`/api/items/${id}`, {
               method: 'PUT',
@@ -113,8 +116,7 @@ responseFacebook = response => {
                         'Content-Type': 'application/json',
                 },
               body: JSON.stringify({
-                name: this.state.name,
-                total: this.state.amount.reduce((a, b) => a + b, 0)
+                total: total
             }),
         })
       }
@@ -123,6 +125,9 @@ responseFacebook = response => {
 
   // removes item from array and resets state
   removeItem(index) {
+
+    const id = this.state.driver._id
+
     this.setState({
       address: [...this.state.address].filter((_, i) => i !== index),
       amount: [...this.state.amount].filter((_, i) => i !== index)
@@ -131,7 +136,7 @@ responseFacebook = response => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
-        let id = this.state.driver._id
+        let total = this.state.amount.reduce((a, b) => a + b, 0)
 
         fetch(`/api/items/${id}`, {
               method: 'PUT',
@@ -140,8 +145,7 @@ responseFacebook = response => {
                         'Content-Type': 'application/json',
                 },
               body: JSON.stringify({
-                name: this.state.name,
-                total: this.state.amount.reduce((a, b) => a + b, 0)
+                total: total
             }),
         })
       }
@@ -151,7 +155,7 @@ responseFacebook = response => {
   // clears localstorage and deletes db document
   logOut() {
 
-    let id = this.state.driver._id
+    const id = this.state.driver._id
     
     fetch(`/api/items/${id}`, {
               method: 'DELETE',
@@ -174,7 +178,7 @@ responseFacebook = response => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
-        let id = this.state.driver._id
+        const id = this.state.driver._id
 
         fetch(`/api/items/${id}`, {
               method: 'PUT',
@@ -183,7 +187,6 @@ responseFacebook = response => {
                         'Content-Type': 'application/json',
                 },
               body: JSON.stringify({
-                name: this.state.name,
                 total: 0
             }),
         })
