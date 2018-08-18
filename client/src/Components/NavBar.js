@@ -61,7 +61,7 @@ export default class NavBar extends React.Component {
                     Reset
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem onClick={this.props.logOut}>
+                  <DropdownItem href='/' onClick={this.props.logOut}>
                     Log Out 
                   </DropdownItem>
                 </DropdownMenu>

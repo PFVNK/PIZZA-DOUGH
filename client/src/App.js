@@ -163,8 +163,7 @@ responseFacebook = response => {
                         'Content-Type': 'application/json',
                 }
         })
-
-    localStorage.clear()
+        localStorage.clear()
   }
 
   // Resets Application
