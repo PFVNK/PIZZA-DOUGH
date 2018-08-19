@@ -64,11 +64,11 @@ responseFacebook = response => {
     localStorage.setItem('picture', JSON.stringify(this.state.picture))
     localStorage.setItem('name', JSON.stringify(this.state.name))
 
-    fetch('/api/items', {
-              method: 'POST',
+    fetch("/api/items", {
+              method: "POST",
               headers: {
-                Accept: 'application/json',
-                        'Content-Type': 'application/json',
+                Accept: "application/json",
+                        "Content-Type": "application/json",
                 },
               body: JSON.stringify({
                 name: this.state.name,
@@ -118,6 +118,7 @@ responseFacebook = response => {
                 total: total
             }),
         })
+
       }
     )  
   }

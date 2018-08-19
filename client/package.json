@@ -20,5 +20,5 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {},
-  "proxy": "https://localhost:3001"
+  "proxy": "http://localhost:3001/"
 }
