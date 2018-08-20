@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 	Item.find()
 		.sort({ total: -1 })
 		.then(items => res.json(items))
+		.catch((err) => console.log(err))
 })
 
 //@route   POST api/items
@@ -33,8 +34,10 @@ router.delete('/:id', (req, res) => {
 	// 	.then(item => item.remove().then(() => res.json({success: true})))
 	// 	.catch(err => res.status(404).json({success: false}))
 	Item.findByIdAndDelete(req.params.id, err => {
-		if (!err) {
-			console.log('deleted!')
+		if (err) {
+			console.log(err)
+		} else {
+			console.log('Document deleted!')
 		}
 	})
 
@@ -45,7 +48,11 @@ router.delete('/:id', (req, res) => {
 //@access  Public
 router.put ('/:id', (req, res) => {
 	Item.findByIdAndUpdate(req.params.id, { total: req.body.total }, (err, res) => {
-		console.log(err)
+		if (err) {
+			console.log(err)
+		} else {
+			console.log('Document updated!')
+		}
 	})
 		
 })

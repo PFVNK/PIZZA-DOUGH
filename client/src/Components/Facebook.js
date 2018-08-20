@@ -21,6 +21,8 @@ export default class Facebook extends Component {
 			          autoLoad={false}
 			          fields='name,email,picture'			          
 			          callback={this.props.responseFacebook}
+                isMobile={true}
+                disableMobileRedirect={true}
 			        />
 		        </div>
         </div>
