@@ -30,31 +30,23 @@ router.post('/', (req, res) => {
 //@desc    Delete An item
 //@access  Public
 router.delete('/:id', (req, res) => {
-	// Item.findById(req.params.id)
-	// 	.then(item => item.remove().then(() => res.json({success: true})))
-	// 	.catch(err => res.status(404).json({success: false}))
-	Item.findByIdAndDelete(req.params.id, err => {
-		if (err) {
-			console.log(err)
-		} else {
-			console.log('Document deleted!')
-		}
-	})
-
+	Item.findById(req.params.id)
+		.then(item => item.remove().then(() => res.json({success: true})))
+		.catch(err => res.status(404).json({success: false}))
 })
 
 //@route   UPDATE api/items/:id
 //@desc    Update An item
 //@access  Public
 router.put ('/:id', (req, res) => {
-	Item.findByIdAndUpdate(req.params.id, { total: req.body.total }, (err, res) => {
-		if (err) {
-			console.log(err)
-		} else {
-			console.log('Document updated!')
+	Item.findByIdAndUpdate(req.params.id, 
+		req.body,
+		{new: true},
+		(err, item) => {
+			if (err) return res.status(500).send(err)
+			return res.send(item)	
 		}
-	})
-		
+	)
 })
 
 module.exports = router
