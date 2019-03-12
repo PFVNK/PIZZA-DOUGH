@@ -1,4 +1,7 @@
 import React from 'react'
+
+import '../App.css'
+
 import {
   Collapse,
   Navbar,
@@ -10,7 +13,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap'
+  DropdownItem
+} from 'reactstrap'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -32,14 +36,14 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color='light' light expand='md'>
+        <Navbar className='classNavBar' color='light' light expand='md'>
           <NavbarBrand className='NavBrand' href='/'>PIZZA DOUGH </NavbarBrand>
           <div className='profileImg'>
             <img src={this.props.picture} alt={this.props.name} />
-          </div>  
-          <NavbarToggler onClick={this.toggle} />         
+          </div>
+          <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className='ml-auto' navbar>  
+            <Nav className='ml-auto' navbar>
               <NavItem>
                 <NavLink tag={Link} to='/input' onClick={this.toggle}>Input</NavLink>
               </NavItem>
@@ -62,7 +66,7 @@ export default class NavBar extends React.Component {
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem href='/' onClick={this.props.logOut}>
-                    Log Out 
+                    Log Out
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

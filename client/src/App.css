@@ -1,10 +1,13 @@
 .App {
   text-align: center;
   /*background-image: url(./blackpizza1.jpg);*/
-  height: 100%;
-  background-position: right;
+  height: 100vh;
   /*background-repeat: no-repeat;*/
-  background-size: 20%;
+  background-color:  	 	#202020;
+}
+
+.classNavBar {
+  background-color:  	#181818 !important;
 }
 
 .Intro {
@@ -68,33 +71,61 @@ h4 {
 
 .NavBrand {
   font-family: 'Fredoka One', cursive;
+  color: tomato !important;
+  text-shadow: 0 0 0px tomato, 0 0 5px tomato, 0 0 15px tomato, 0 0 25px tomato, 0 0 35px tomato, 0 0 50px tomato, 0 0 70px tomato !important;
+}
+
+.nav-link {
+  color: tomato !important;
+  text-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important;
 }
 
 .ValueSubmit input {
   border: none;
   font-size: 20px;
+  background-color: tomato;
+  color: white;
 }
 
 .AddressValue {
   margin-top: 35px;
+  color: whitesmoke;
 }
 
 .AddressValue input {
   margin-top: 15px;
+  color: white;
+  background-color: inherit;
+  border: none;
+  border-bottom: solid .01px black;
+}
+
+.AddressValue input:focus {
+  box-shadow: 0 0 0px tomato, 0 0 0px tomato, 0 0 0px tomato, 0 0 5px tomato, 0 0 15px tomato, 0 0 30px tomato, 0 0 50px tomato !important;
 }
 
 .TipValue {
   margin-top: -10px;
+  color: whitesmoke;
 }
 
 .TipValue input {
   margin-top: 15px;
+  color: white;
+  background-color: inherit;
+  border: none;
+  border-bottom: solid .01px black;
+}
+
+.TipValue input:focus {
+    box-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important;
 }
 
 .TotalNum {
-  margin-top: 60px;
+  margin-top: 100px;
   font-size: 30px;
   font-family: 'Lato', sans-serif;
+  color: whitesmoke;
 }
 
 .TotalDisplay h2 {
