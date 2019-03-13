@@ -45,27 +45,27 @@ export default class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
               <NavItem>
-                <NavLink tag={Link} to='/input' onClick={this.toggle}>Input</NavLink>
+                <NavLink tag={Link} to='/input' >Input</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to='/tiplist' onClick={this.toggle}>Track</NavLink>
+                <NavLink tag={Link} to='/tiplist' >Track</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Options
                 </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem tag={Link} to='/standings' onClick={this.toggle}>
+                <DropdownMenu className='nav-dropdown' right>
+                  <DropdownItem className='nav-dropdown-item' tag={Link} to='/standings' >
                     Standings
                   </DropdownItem>
-                  <DropdownItem tag={Link} to='/map' onClick={this.toggle}>
+                  <DropdownItem className='nav-dropdown-item' tag={Link} to='/map' >
                     Map
                   </DropdownItem>
-                  <DropdownItem href='#' onClick={this.props.clearState}>
+                  <DropdownItem className='nav-dropdown-item' href='#' onClick={this.props.clearState}>
                     Reset
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem href='/' onClick={this.props.logOut}>
+                  <DropdownItem className='nav-dropdown-item' href='/' onClick={this.props.logOut}>
                     Log Out
                   </DropdownItem>
                 </DropdownMenu>
