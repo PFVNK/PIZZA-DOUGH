@@ -110,8 +110,10 @@ h4 {
   color: tomato !important;
 }
 
-.navbar-toggler-icon {
+span.navbar-toggler-icon {
   color: tomato !important;
+  background-color: tomato !important;
+  box-shadow: 0 0 0px tomato, 0 0 0px tomato, 0 0 0px tomato, 0 0 0px tomato, 0 0 1px tomato, 0 0 5px tomato, 0 0 25px tomato !important;
 }
 
 .ValueSubmit input {
@@ -167,7 +169,7 @@ h4 {
 }
 
 .TotalNum {
-  margin-top: 1.1em;
+  margin-top: 2em;
   font-size: 3.5em;
   font-family: 'Lato', sans-serif;
   color: whitesmoke;
@@ -197,6 +199,11 @@ h4 {
 }
 
 @media only screen and (max-width: 414px) {
+  .app {
+    background-size: 100vh;
+    background-position: 0% 0%;;
+  }
+
   .profileImg {
   width: 45%;
   height: 40px;
@@ -229,20 +236,28 @@ h4 {
   width: 100%;
   height: 100%;
 }
+/* input */
+.TotalNum {
+  margin-top: 1.5em;
+  font-size: 3.5em;
+  font-family: 'Lato', sans-serif;
+  color: whitesmoke;
+}
 }
 
 @media only screen and (max-width: 375px) {
   .profileImg {
-  width: 40%;
+  width: 10%;
   height: 40px;
   flex-wrap: nowrap;
 }
 
 .profileImg img {
   flex-wrap: nowrap;
-  float: right;
+  float: left;
   width: 40px;
   height: 40px;
+  margin-left: 45px;
 }
 
 .Intro {
@@ -262,6 +277,25 @@ h4 {
   /*margin: auto;*/
   width: 100%;
   height: 100%;
+}
+
+.ListTitle h2 {
+  margin-top: .5em;
+  font-size: 2.5em;
+  color: white;
+}
+
+.Deliverylist h4 {
+  font-size: 2em;
+  color: white;
+}
+
+/* input */
+.TotalNum {
+  margin-top: .8em;
+  font-size: 3.5em;
+  font-family: 'Lato', sans-serif;
+  color: whitesmoke;
 }
 }
 
@@ -296,6 +330,17 @@ h4 {
   /*margin: auto;*/
   width: 100%;
   height: 100%;
+}
+
+.ListTitle h2 {
+  margin-top: .5em;
+  font-size: 2.5em;
+  color: white;
+}
+
+.Deliverylist h4 {
+  font-size: 2em;
+  color: white;
 }
 
 }
