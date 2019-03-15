@@ -30,7 +30,6 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.removeItem = this.removeItem.bind(this)
     this.clearState = this.clearState.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
     this.logOut = this.logOut.bind(this)
   }
 
@@ -51,7 +50,7 @@ class App extends Component {
     })
   }
 
-responseFacebook = response => {
+  responseFacebook = response => {
 
     this.setState({
       isLoggedIn: true,
@@ -65,29 +64,29 @@ responseFacebook = response => {
     localStorage.setItem('name', JSON.stringify(this.state.name))
 
     fetch('/api/items', {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                },
-              body: JSON.stringify({
-                name: this.state.name,
-                total: 0
-            }),  
-        })
-        .then(res => res.json())
-        .then(driver => this.setState({driver}))
-        .then(() => localStorage.setItem('driver', JSON.stringify(this.state.driver)))              
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        total: 0
+      }),
+    })
+      .then(res => res.json())
+      .then(driver => this.setState({ driver }))
+      .then(() => localStorage.setItem('driver', JSON.stringify(this.state.driver)))
   }
-  
+
   // handles amount input, pushes data to array in state 
   handleTipArray(event) {
-    this.setState({amountValue: event.target.value || ' '})
+    this.setState({ amountValue: event.target.value || ' ' })
   }
 
   // handles address input, pushes data to array in state 
   handleAddressArray(event) {
-    this.setState({addressValue: event.target.value || ' '})
+    this.setState({ addressValue: event.target.value || ' ' })
   }
 
   // sets address and amount data in localstorage
@@ -96,33 +95,33 @@ responseFacebook = response => {
 
     const id = this.state.driver._id
 
-    this.setState ({ 
-      address: [...this.state.address || [], this.state.addressValue || '-'], 
-      amount: [...this.state.amount || [], parseFloat(this.state.amountValue) ||  0],
+    this.setState({
+      address: [...this.state.address || [], this.state.addressValue || '-'],
+      amount: [...this.state.amount || [], parseFloat(this.state.amountValue) || 0],
       addressValue: '',
       amountValue: ''
     },
-    () => {
+      () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
         let total = this.state.amount.reduce((a, b) => a + b, 0)
 
         fetch(`/api/items/${id}`, {
-              method: 'PUT',
-              headers: {
-                Accept: 'application/json',
-                        'Content-Type': 'application/json'
-                },
-              body: JSON.stringify({
-                total: total
-            }),
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            total: total
+          }),
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
+          .then(res => res.json())
+          .then(data => console.log(data))
+          .catch(err => console.log(err))
       }
-    )  
+    )
   }
 
   // removes item from array and resets state
@@ -134,39 +133,39 @@ responseFacebook = response => {
       address: [...this.state.address].filter((_, i) => i !== index),
       amount: [...this.state.amount].filter((_, i) => i !== index)
     },
-    () => {
+      () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
         let total = this.state.amount.reduce((a, b) => a + b, 0)
 
         fetch(`/api/items/${id}`, {
-              method: 'PUT',
-              headers: {
-                Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                },
-              body: JSON.stringify({
-                total: total
-            }),
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            total: total
+          }),
         })
       }
-    )  
+    )
   }
 
   // clears localstorage and deletes db document
   logOut() {
 
     const id = this.state.driver._id
-    
+
     fetch(`/api/items/${id}`, {
-              method: 'DELETE',
-              headers: {
-                Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                }
-        })
-        localStorage.clear()
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    localStorage.clear()
   }
 
   // Resets Application
@@ -175,21 +174,21 @@ responseFacebook = response => {
       address: [],
       amount: []
     },
-    () => {   
+      () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
         const id = this.state.driver._id
 
         fetch(`/api/items/${id}`, {
-              method: 'PUT',
-              headers: {
-                Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                },
-              body: JSON.stringify({
-                total: 0
-            }),
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            total: 0
+          }),
         })
       }
     )
@@ -211,7 +210,7 @@ responseFacebook = response => {
           <Route
             path='/'
             render={(props) => (props.location.pathname !== '/') && (<NavBar {...props}
-              clearState={ this.clearState }
+              clearState={this.clearState}
               logOut={this.logOut}
               picture={this.state.picture}
               name={this.state.name}
@@ -219,27 +218,27 @@ responseFacebook = response => {
           />
           <Route
             path='/input' exact
-            render={(props) => <MainTotal {...props} amount={this.state.amount}/>}
+            render={(props) => <MainTotal {...props} amount={this.state.amount} />}
           />
           <Route
             path='/standings' exact
-            render={(props) => <Standings {...props} amount={this.state.amount}/>}
+            render={(props) => <Standings {...props} amount={this.state.amount} />}
           />
           <Route
             path='/input' exact
-            render={(props) => (<SetValues {...props} 
-              handleSubmit={ this.handleSubmit } 
-              handleAddressArray={ this.handleAddressArray } 
-              handleTipArray={ this.handleTipArray }
+            render={(props) => (<SetValues {...props}
+              handleSubmit={this.handleSubmit}
+              handleAddressArray={this.handleAddressArray}
+              handleTipArray={this.handleTipArray}
               handleChange={this.handleChange}
               amount={this.state.amount}
               addressValue={this.state.addressValue}
-              amountValue={this.state.amountValue} 
+              amountValue={this.state.amountValue}
             />)}
           />
           <Route
             path='/tiplist' exact
-            render={(props) => (<TipList {...props} 
+            render={(props) => (<TipList {...props}
               amount={this.state.amount}
               address={this.state.address}
               removeItem={this.removeItem}
@@ -248,7 +247,7 @@ responseFacebook = response => {
           <Route
             path='/map' exact
             render={() => <MapWithASearchBox />}
-          /> 
+          />
         </div>
       </Router>
     )
