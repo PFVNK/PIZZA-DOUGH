@@ -141,7 +141,10 @@ span.navbar-toggler-icon {
 }
 
 .AddressValue input:focus {
-  box-shadow: 0 0 0px tomato, 0 0 0px tomato, 0 0 0px tomato, 0 0 5px tomato, 0 0 15px tomato, 0 0 30px tomato, 0 0 50px tomato !important;
+  /* box-shadow: 0 0 0px tomato, 0 0 0px tomato, 0 0 0px tomato, 0 0 5px tomato, 0 0 15px tomato, 0 0 30px tomato, 0 0 50px tomato !important; */
+  -webkit-box-shadow: 0 10px 6px -6px tomato;
+  -moz-box-shadow: 0 10px 6px -6px tomato;
+  box-shadow: 0 10px 6px -6px tomato;
 }
 
 .TipValue {
@@ -159,8 +162,11 @@ span.navbar-toggler-icon {
 }
 
 .TipValue input:focus {
-    box-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important;
-}
+    /* box-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important; */
+    -webkit-box-shadow: 0 10px 6px -6px tomato;
+    -moz-box-shadow: 0 10px 6px -6px tomato;
+    box-shadow: 0 10px 6px -6px tomato;
+  }
 
 .TotalNum {
   margin-top: 2em;
@@ -212,11 +218,8 @@ span.navbar-toggler-icon {
 }
 
 .Intro {
-  /*border: solid black;*/
-/*  margin: 0 auto;*/
   padding: 5%;
   padding-top: 60%;
-
 }
 
 .Intro h1 {
@@ -225,8 +228,6 @@ span.navbar-toggler-icon {
 }
 
 .IntroElements {
- /* border: solid red;*/
-  /*margin: auto;*/
   width: 100%;
   height: 100%;
 }
@@ -255,8 +256,6 @@ span.navbar-toggler-icon {
 }
 
 .Intro {
-  /*border: solid black;*/
-/*  margin: 0 auto;*/
   padding: 5%;
   padding-top: 60%;
 
@@ -267,8 +266,6 @@ span.navbar-toggler-icon {
 }
 
 .IntroElements {
-  /*border: solid red;*/
-  /*margin: auto;*/
   width: 100%;
   height: 100%;
 }
@@ -293,20 +290,6 @@ span.navbar-toggler-icon {
 }
 }
 
-@media only screen and (max-height: 460px) {
-.TotalNum {
-  margin-top: .6em;
-}
-
-.AddressValue {
-  font-size: 1em;
-}
-
-.TipValue {
-  font-size: 1em;
-}
-}
-
 @media only screen and (max-width: 320px) {
   .profileImg {
   width: 25%;
@@ -322,8 +305,6 @@ span.navbar-toggler-icon {
 }
 
 .Intro {
-  /*border: solid black;*/
-/*  margin: 0 auto;*/
   padding: 5%;
   padding-top: 50%;
 
@@ -351,4 +332,45 @@ span.navbar-toggler-icon {
   color: white;
 }
 
+}
+
+/* heights */
+@media only screen and (max-height: 460px) {
+.TotalNum {
+  margin-top: .6em;
+}
+
+.AddressValue {
+  font-size: 1em;
+}
+
+.TipValue {
+  font-size: 1em;
+}
+
+.AddressValue {
+  margin-top: 1.5em;
+  color: whitesmoke;
+}
+
+.AddressValue input {
+  margin-top: 1em;
+  color: white;
+  background-color: inherit;
+  border: none;
+  border-bottom: solid .01px tomato;
+}
+
+.TipValue {
+  margin-top: 1em;
+  color: whitesmoke;
+}
+
+.TipValue input {
+  margin-top: 1em;
+  color: white;
+  background-color: inherit;
+  border: none;
+  border-bottom: solid .01px tomato;
+}
 }
