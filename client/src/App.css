@@ -11,7 +11,7 @@ h4 {
   background-position: center;
   background-size: 90vh;
   background-position: 50% 80px;
-  ;
+  overflow: hidden;
 }
 
 .classNavBar {
@@ -286,10 +286,26 @@ span.navbar-toggler-icon {
 
   /* input */
   .TotalNum {
-    margin-top: .8em;
+    margin-top: .5em;
     font-size: 2em;
     font-family: 'Lato', sans-serif;
     color: whitesmoke;
+  }
+
+  .AddressValue {
+    margin-top: .5em;
+  }
+
+  .AddressValue input {
+    margin-top: .5em;
+  }
+
+  .TipValue {
+    margin-top: .5em;
+  }
+
+  .TipValue input {
+    margin-top: .5em;
   }
 }
 
@@ -335,12 +351,28 @@ span.navbar-toggler-icon {
     color: white;
   }
 
+  .AddressValue {
+    margin-top: .5em;
+  }
+
+  .AddressValue input {
+    margin-top: .5em;
+  }
+
+  .TipValue {
+    margin-top: .5em;
+  }
+
+  .TipValue input {
+    margin-top: .5em;
+  }
+
 }
 
 /* heights */
 @media only screen and (max-height: 460px) {
   .TotalNum {
-    margin-top: .6em;
+    margin-top: .5em;
   }
 
   .AddressValue {
