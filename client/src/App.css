@@ -237,7 +237,7 @@ span.navbar-toggler-icon {
   /* input */
   .TotalNum {
     margin-top: 1em;
-    font-size: 3.5em;
+    font-size: 3em;
     font-family: 'Lato', sans-serif;
     color: whitesmoke;
   }
@@ -287,7 +287,7 @@ span.navbar-toggler-icon {
   /* input */
   .TotalNum {
     margin-top: 1em;
-    font-size: 3em;
+    font-size: 2.3em;
     font-family: 'Lato', sans-serif;
     color: whitesmoke;
   }
@@ -368,7 +368,7 @@ span.navbar-toggler-icon {
   }
 
   .TotalNum {
-    font-size: 3em;
+    font-size: 2.3em;
   }
 
 }
