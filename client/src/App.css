@@ -236,7 +236,7 @@ span.navbar-toggler-icon {
 
   /* input */
   .TotalNum {
-    margin-top: 1.5em;
+    margin-top: 1em;
     font-size: 3.5em;
     font-family: 'Lato', sans-serif;
     color: whitesmoke;
@@ -352,7 +352,7 @@ span.navbar-toggler-icon {
   }
 
   .AddressValue {
-    margin-top: 1.5em;
+    margin-top: 1em;
     color: whitesmoke;
   }
 
