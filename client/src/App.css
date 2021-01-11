@@ -286,26 +286,26 @@ span.navbar-toggler-icon {
 
   /* input */
   .TotalNum {
-    margin-top: .5em;
+    margin-top: 1em;
     font-size: 2em;
     font-family: 'Lato', sans-serif;
     color: whitesmoke;
   }
 
   .AddressValue {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
   .AddressValue input {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
   .TipValue {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
   .TipValue input {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 }
 
@@ -352,19 +352,19 @@ span.navbar-toggler-icon {
   }
 
   .AddressValue {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
   .AddressValue input {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
   .TipValue {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
   .TipValue input {
-    margin-top: .7em;
+    margin-top: 1.5em;
   }
 
 }
