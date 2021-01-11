@@ -100,8 +100,6 @@ class App extends Component {
       () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
-
-        let total = this.state.amount.reduce((a, b) => a + b, 0)
       }
     )
   }
