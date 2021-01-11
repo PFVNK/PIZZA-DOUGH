@@ -5,16 +5,17 @@ h4 {
 .App {
   text-align: center;
   height: 100vh;
-  background-color:  	 	#202020;
+  background-color: #202020;
   background-image: url('pizza.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90vh;
-  background-position: 50% 80px;;
+  background-position: 50% 80px;
+  ;
 }
 
 .classNavBar {
-  background-color:  	#181818 !important;
+  background-color: #181818 !important;
 }
 
 .Intro {
@@ -96,7 +97,7 @@ h4 {
 }
 
 .nav-dropdown {
-  background-color:  	#080808;
+  background-color: #080808;
   text-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important;
 }
 
@@ -117,12 +118,12 @@ span.navbar-toggler-icon {
   width: 8em;
   border: solid .9px tomato;
   border-radius: 15px;
-  color:rgb(255, 255, 255);
-  background: rgba(255, 99, 71,0.4);
+  color: rgb(255, 255, 255);
+  background: rgba(255, 99, 71, 0.4);
 }
 
 .ValueSubmit input:hover {
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   background: rgba(255, 99, 71, .7);
 }
 
@@ -162,14 +163,14 @@ span.navbar-toggler-icon {
 }
 
 .TipValue input:focus {
-    /* box-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important; */
-    -webkit-box-shadow: 0 10px 6px -6px tomato;
-    -moz-box-shadow: 0 10px 6px -6px tomato;
-    box-shadow: 0 10px 6px -6px tomato;
-  }
+  /* box-shadow: 0 0 5px tomato, 0 0 10px tomato, 0 0 20px tomato, 0 0 30px tomato, 0 0 40px tomato, 0 0 55px tomato, 0 0 75px tomato !important; */
+  -webkit-box-shadow: 0 10px 6px -6px tomato;
+  -moz-box-shadow: 0 10px 6px -6px tomato;
+  box-shadow: 0 10px 6px -6px tomato;
+}
 
 .TotalNum {
-  margin-top: 2em;
+  margin-top: .5em;
   font-size: 3.5em;
   font-family: 'Lato', sans-serif;
   color: whitesmoke;
@@ -180,7 +181,7 @@ span.navbar-toggler-icon {
 }
 
 .Standings {
-    color: white;
+  color: white;
 }
 
 .Standings ul {
@@ -195,182 +196,184 @@ span.navbar-toggler-icon {
   font-size: 1.3rem;
   line-height: 2rem;
   border-bottom: 1px dotted;
-  color: white;  
+  color: white;
 }
 
 @media only screen and (max-width: 414px) {
   .app {
     background-size: 100vh;
-    background-position: 0% 0%;;
+    background-position: 0% 0%;
+    ;
   }
 
   .profileImg {
-  width: 45%;
-  height: 40px;
-  flex-wrap: nowrap;
-}
+    width: 45%;
+    height: 40px;
+    flex-wrap: nowrap;
+  }
 
-.profileImg img {
-  flex-wrap: nowrap;
-  float: right;
-  width: 40px;
-  height: 40px;
-}
+  .profileImg img {
+    flex-wrap: nowrap;
+    float: right;
+    width: 40px;
+    height: 40px;
+  }
 
-.Intro {
-  padding: 5%;
-  padding-top: 60%;
-}
+  .Intro {
+    padding: 5%;
+    padding-top: 60%;
+  }
 
-.Intro h1 {
-  font-size: 2.5em;
-  font-family: 'Fredoka One', cursive;
-}
+  .Intro h1 {
+    font-size: 2.5em;
+    font-family: 'Fredoka One', cursive;
+  }
 
-.IntroElements {
-  width: 100%;
-  height: 100%;
-}
-/* input */
-.TotalNum {
-  margin-top: 1.5em;
-  font-size: 3.5em;
-  font-family: 'Lato', sans-serif;
-  color: whitesmoke;
-}
+  .IntroElements {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* input */
+  .TotalNum {
+    margin-top: 1.5em;
+    font-size: 3.5em;
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke;
+  }
 }
 
 @media only screen and (max-width: 375px) {
   .profileImg {
-  width: 10%;
-  height: 40px;
-  flex-wrap: nowrap;
-}
+    width: 10%;
+    height: 40px;
+    flex-wrap: nowrap;
+  }
 
-.profileImg img {
-  flex-wrap: nowrap;
-  float: left;
-  width: 40px;
-  height: 40px;
-  margin-left: 45px;
-}
+  .profileImg img {
+    flex-wrap: nowrap;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-left: 45px;
+  }
 
-.Intro {
-  padding: 5%;
-  padding-top: 60%;
+  .Intro {
+    padding: 5%;
+    padding-top: 60%;
 
-}
+  }
 
-.Intro h1 {
-  font-size: 2.5em;
-}
+  .Intro h1 {
+    font-size: 2.5em;
+  }
 
-.IntroElements {
-  width: 100%;
-  height: 100%;
-}
+  .IntroElements {
+    width: 100%;
+    height: 100%;
+  }
 
-.ListTitle h2 {
-  margin-top: .5em;
-  font-size: 2.5em;
-  color: white;
-}
+  .ListTitle h2 {
+    margin-top: .5em;
+    font-size: 2.5em;
+    color: white;
+  }
 
-.Deliverylist h4 {
-  font-size: 2em;
-  color: white;
-}
+  .Deliverylist h4 {
+    font-size: 2em;
+    color: white;
+  }
 
-/* input */
-.TotalNum {
-  margin-top: .8em;
-  font-size: 2em;
-  font-family: 'Lato', sans-serif;
-  color: whitesmoke;
-}
+  /* input */
+  .TotalNum {
+    margin-top: .8em;
+    font-size: 2em;
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke;
+  }
 }
 
 @media only screen and (max-width: 320px) {
   .profileImg {
-  width: 25%;
-  height: 40px;
-  flex-wrap: nowrap;
-}
+    width: 25%;
+    height: 40px;
+    flex-wrap: nowrap;
+  }
 
-.profileImg img {
-  flex-wrap: nowrap;
-  float: right;
-  width: 40px;
-  height: 40px;
-}
+  .profileImg img {
+    flex-wrap: nowrap;
+    float: right;
+    width: 40px;
+    height: 40px;
+  }
 
-.Intro {
-  padding: 5%;
-  padding-top: 50%;
+  .Intro {
+    padding: 5%;
+    padding-top: 50%;
 
-}
+  }
 
-.Intro h1 {
-  font-size: 2.5em;
-}
+  .Intro h1 {
+    font-size: 2.5em;
+  }
 
-.IntroElements {
-  /*border: solid red;*/
-  /*margin: auto;*/
-  width: 100%;
-  height: 100%;
-}
+  .IntroElements {
+    /*border: solid red;*/
+    /*margin: auto;*/
+    width: 100%;
+    height: 100%;
+  }
 
-.ListTitle h2 {
-  margin-top: .5em;
-  font-size: 2.5em;
-  color: white;
-}
+  .ListTitle h2 {
+    margin-top: .5em;
+    font-size: 2.5em;
+    color: white;
+  }
 
-.Deliverylist h4 {
-  font-size: 2em;
-  color: white;
-}
+  .Deliverylist h4 {
+    font-size: 2em;
+    color: white;
+  }
 
 }
 
 /* heights */
 @media only screen and (max-height: 460px) {
-.TotalNum {
-  margin-top: .6em;
-}
+  .TotalNum {
+    margin-top: .6em;
+  }
 
-.AddressValue {
-  font-size: 1em;
-}
+  .AddressValue {
+    font-size: 1em;
+  }
 
-.TipValue {
-  font-size: 1em;
-}
+  .TipValue {
+    font-size: 1em;
+  }
 
-.AddressValue {
-  margin-top: 1.5em;
-  color: whitesmoke;
-}
+  .AddressValue {
+    margin-top: 1.5em;
+    color: whitesmoke;
+  }
 
-.AddressValue input {
-  margin-top: 1em;
-  color: white;
-  background-color: inherit;
-  border: none;
-  border-bottom: solid .01px tomato;
-}
+  .AddressValue input {
+    margin-top: 1em;
+    color: white;
+    background-color: inherit;
+    border: none;
+    border-bottom: solid .01px tomato;
+  }
 
-.TipValue {
-  margin-top: 1em;
-  color: whitesmoke;
-}
+  .TipValue {
+    margin-top: 1em;
+    color: whitesmoke;
+  }
 
-.TipValue input {
-  margin-top: 1em;
-  color: white;
-  background-color: inherit;
-  border: none;
-  border-bottom: solid .01px tomato;
-}
+  .TipValue input {
+    margin-top: 1em;
+    color: white;
+    background-color: inherit;
+    border: none;
+    border-bottom: solid .01px tomato;
+  }
 }
