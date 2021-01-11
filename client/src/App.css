@@ -287,7 +287,7 @@ span.navbar-toggler-icon {
   /* input */
   .TotalNum {
     margin-top: 1em;
-    font-size: 2em;
+    font-size: 3em;
     font-family: 'Lato', sans-serif;
     color: whitesmoke;
   }
@@ -365,6 +365,10 @@ span.navbar-toggler-icon {
 
   .TipValue input {
     margin-top: 1.5em;
+  }
+
+  .TotalNum {
+    font-size: 3em;
   }
 
 }
