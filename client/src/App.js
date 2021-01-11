@@ -4,7 +4,6 @@ import NavBar from './Components/NavBar'
 import TipList from './Components/TipList'
 import MainTotal from './Components/MainTotal'
 import Facebook from './Components/Facebook'
-import Standings from './Components/Standings'
 import MapWithASearchBox from './Components/MapWithASearchBox'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import SetValues from './Components/SetValues'
@@ -21,8 +20,7 @@ class App extends Component {
       userID: '',
       name: '',
       email: '',
-      picture: '',
-      driver: []
+      picture: ''
     }
 
     this.handleTipArray = this.handleTipArray.bind(this)
@@ -48,6 +46,8 @@ class App extends Component {
       name,
       driver
     })
+
+    console.log(this.state.driver)
   }
 
   responseFacebook = response => {
@@ -62,21 +62,6 @@ class App extends Component {
 
     localStorage.setItem('picture', JSON.stringify(this.state.picture))
     localStorage.setItem('name', JSON.stringify(this.state.name))
-
-    fetch('/api/items', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        total: 0
-      }),
-    })
-      .then(res => res.json())
-      .then(driver => this.setState({ driver }))
-      .then(() => localStorage.setItem('driver', JSON.stringify(this.state.driver)))
   }
 
   // handles amount input, pushes data to array in state 
@@ -93,8 +78,6 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault()
 
-    const id = this.state.driver._id
-
     this.setState({
       address: [...this.state.address || [], this.state.addressValue || '-'],
       amount: [...this.state.amount || [], parseFloat(this.state.amountValue) || 0],
@@ -104,31 +87,12 @@ class App extends Component {
       () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
-
-        let total = this.state.amount.reduce((a, b) => a + b, 0)
-
-        fetch(`/api/items/${id}`, {
-          method: 'PUT',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            total: total
-          }),
-        })
-          .then(res => res.json())
-          .then(data => console.log(data))
-          .catch(err => console.log(err))
       }
     )
   }
 
   // removes item from array and resets state
   removeItem(index) {
-
-    const id = this.state.driver._id
-
     this.setState({
       address: [...this.state.address].filter((_, i) => i !== index),
       amount: [...this.state.amount].filter((_, i) => i !== index)
@@ -138,33 +102,12 @@ class App extends Component {
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
 
         let total = this.state.amount.reduce((a, b) => a + b, 0)
-
-        fetch(`/api/items/${id}`, {
-          method: 'PUT',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            total: total
-          }),
-        })
       }
     )
   }
 
   // clears localstorage and deletes db document
   logOut() {
-
-    const id = this.state.driver._id
-
-    fetch(`/api/items/${id}`, {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
     localStorage.clear()
   }
 
@@ -177,19 +120,6 @@ class App extends Component {
       () => {
         localStorage.setItem('address', JSON.stringify(this.state.address))
         localStorage.setItem('amount', JSON.stringify(this.state.amount))
-
-        const id = this.state.driver._id
-
-        fetch(`/api/items/${id}`, {
-          method: 'PUT',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            total: 0
-          }),
-        })
       }
     )
   }
@@ -219,10 +149,6 @@ class App extends Component {
           <Route
             path='/input' exact
             render={(props) => <MainTotal {...props} amount={this.state.amount} />}
-          />
-          <Route
-            path='/standings' exact
-            render={(props) => <Standings {...props} amount={this.state.amount} />}
           />
           <Route
             path='/input' exact
